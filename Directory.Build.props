@@ -1,0 +1,11 @@
+<Project>
+  <!--
+    tests/ ディレクトリのプロジェクトをパッケージ・パブリッシュ対象から除外する。
+    テストの実行: dotnet test tests/Sts2ServerLib.Tests.csproj
+    ライブラリのビルド: dotnet build Sts2ServerLib.csproj
+  -->
+  <PropertyGroup Condition="$(MSBuildProjectDirectory.Contains('\tests\')) Or $(MSBuildProjectDirectory.EndsWith('\tests'))">
+    <IsPackable>false</IsPackable>
+    <IsPublishable>false</IsPublishable>
+  </PropertyGroup>
+</Project>
